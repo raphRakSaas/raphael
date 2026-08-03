@@ -8,19 +8,19 @@ export const nav = [
 
 export const hero = {
   badge: "Disponible — CDI chez plüm",
-  title: "Apps mobiles & web livrées en production.",
+  title: "De l'idée au produit fini, livré en production.",
   subtitle:
     "Développeur fullstack depuis La Réunion — je prends votre projet de l'idée jusqu'au store et aux serveurs, sans rien déléguer.",
   ctaPrimary: { label: "Voir mes projets", href: "#projects" },
   ctaSecondary: { label: "Me contacter", href: "#contact" },
   stats: [
     { value: "7", label: "produits en production" },
-    { value: "M2", label: "Mention Bien — 2025" },
-    { value: "2024 → 2025", label: "plüm alternance → CDI" },
+    { value: "Master 2", label: "Mention Très Bien — 2025" },
+    { value: "2024 → Aujourd'hui", label: "plüm alternance → CDI" },
   ],
 };
 
-export type ProjectCategory = "Plüm · Professionnel" | "Side project";
+export type ProjectCategory = "Startup" | "Side project";
 
 export type Project = {
   slug: string;
@@ -35,11 +35,52 @@ export type Project = {
   appLabel?: string;
 };
 
-export const projectCategories: ProjectCategory[] = ["Plüm · Professionnel", "Side project"];
+export const projectCategories: ProjectCategory[] = ["Startup", "Side project"];
 
 // First 4 entries drive the hero scroll-morph (see StackOverlay + morph-context) —
 // keep the featured mix here, extra projects render as plain cards after.
 export const projects: Project[] = [
+  {
+    slug: "plum-services",
+    name: "Plüm Services",
+    category: "Startup",
+    meta: "CDI · Sept. 2024 — présent",
+    description:
+      "Application mobile & plateforme SaaS de gestion de services à domicile — React Native, Next.js, NestJS.",
+    image: "/images/plum/plum.png",
+    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-services",
+  },
+  {
+    slug: "plum-website",
+    name: "Plüm — Site vitrine",
+    category: "Startup",
+    meta: "Site vitrine · 2024 — présent",
+    description:
+      "Landing page publique de plüm — présentation de l'offre ménage, linge et garde d'enfants à La Réunion, et téléchargement de l'app iOS/Android.",
+    image: "/images/plum-website/image.png",
+    externalHref: "https://plumservices.co/",
+  },
+  {
+    slug: "plum-pro",
+    name: "Plüm BnB — Espace professionnel",
+    category: "Startup",
+    meta: "B2B · Sept. 2024 — présent",
+    description:
+      "Web app B2B pour les pros de la location courte durée — biens, prestations de ménage, agenda et facturation.",
+    image: "/images/bnb-profile/image.png",
+    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-pro",
+  },
+  {
+    slug: "plum-dashboard",
+    name: "Dashboard de pilotage plüm",
+    category: "Startup",
+    meta: "Interne · 2025 — présent",
+    description:
+      "Outil interne de pilotage de la startup — données, règles métier, documents et opérations centralisés.",
+    image: "/images/plum/plum-2.webp",
+    private: true,
+    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-dashboard",
+  },
   {
     slug: "sereno",
     name: "Sereno",
@@ -53,26 +94,6 @@ export const projects: Project[] = [
     appLabel: "Essayer l'app",
   },
   {
-    slug: "plum-services",
-    name: "Plüm Services",
-    category: "Plüm · Professionnel",
-    meta: "CDI · Sept. 2024 — présent",
-    description:
-      "Application mobile & plateforme SaaS de gestion de services à domicile — React Native, Next.js, NestJS.",
-    image: "/images/plum/plum.png",
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-services",
-  },
-  {
-    slug: "plum-website",
-    name: "Plüm — Site vitrine",
-    category: "Plüm · Professionnel",
-    meta: "Site vitrine · 2024 — présent",
-    description:
-      "Landing page publique de plüm — présentation de l'offre ménage, linge et garde d'enfants à La Réunion, et téléchargement de l'app iOS/Android.",
-    image: "/images/plum-website/image.png",
-    externalHref: "https://plumservices.co/",
-  },
-  {
     slug: "revo",
     name: "Revo",
     category: "Side project",
@@ -81,16 +102,6 @@ export const projects: Project[] = [
       "SaaS pour coachs sportifs — gestion clients, séances, programmes et suivi de progression.",
     image: "/images/revo-capture/revo-hero.webp",
     externalHref: "https://raphael-rakotonaivo.vercel.app/projects/revo",
-  },
-  {
-    slug: "plum-pro",
-    name: "Plüm BnB — Espace professionnel",
-    category: "Plüm · Professionnel",
-    meta: "B2B · Sept. 2024 — présent",
-    description:
-      "Web app B2B pour les pros de la location courte durée — biens, prestations de ménage, agenda et facturation.",
-    image: "/images/bnb-profile/image.png",
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-pro",
   },
   {
     slug: "tourose",
@@ -102,17 +113,6 @@ export const projects: Project[] = [
     image: "/images/tourose/image.png",
     externalHref: "https://tourose.pages.dev/",
   },
-  {
-    slug: "plum-dashboard",
-    name: "Dashboard de pilotage plüm",
-    category: "Plüm · Professionnel",
-    meta: "Interne · 2025 — présent",
-    description:
-      "Outil interne de pilotage de la startup — données, règles métier, documents et opérations centralisés.",
-    image: "/images/plum/plum-2.webp",
-    private: true,
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-dashboard",
-  },
 ];
 
 export const quote =
@@ -123,12 +123,12 @@ export const services = {
   subtitle:
     "Mobile, web, backend et infra — je ne sous-traite rien. Du prototype au serveur de production, c'est moi qui livre.",
   items: [
-    { icon: "📱", title: "Applications mobiles", note: "React Native" },
-    { icon: "🌐", title: "Plateformes web", note: "Next.js" },
-    { icon: "⚙️", title: "APIs", note: "NestJS · TypeScript" },
-    { icon: "🚀", title: "Déploiement", note: "Docker · Scaleway" },
-    { icon: "🔌", title: "Intégrations", note: "Stripe · Firebase" },
-    { icon: "🗄️", title: "Bases de données", note: "PostgreSQL · Supabase" },
+    { title: "Applications mobiles", note: "React Native" },
+    { title: "Plateformes web", note: "Next.js" },
+    { title: "APIs", note: "NestJS · TypeScript" },
+    { title: "Déploiement", note: "Docker · Scaleway" },
+    { title: "Intégrations", note: "Stripe · Firebase" },
+    { title: "Bases de données", note: "PostgreSQL · Supabase" },
   ],
 };
 

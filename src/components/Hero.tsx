@@ -36,8 +36,8 @@ export function Hero() {
           <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4 border-t border-line pt-8">
             {hero.stats.map((stat) => (
               <div key={stat.label}>
-                <div className="font-mono-tag text-2xl">{stat.value}</div>
-                <div className="mt-1 text-xs text-muted">{stat.label}</div>
+                <div className="font-mono-tag whitespace-nowrap text-2xl">{stat.value}</div>
+                <div className="mt-1 whitespace-nowrap text-xs text-muted">{stat.label}</div>
               </div>
             ))}
           </div>

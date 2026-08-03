@@ -59,7 +59,13 @@ export function StackOverlay() {
             }}
             className="overflow-hidden rounded-2xl border border-line shadow-soft-lg"
           >
-            <Image src={project.image} alt={project.name} fill sizes="600px" className="object-cover" />
+            <Image
+              src={project.image}
+              alt={project.name}
+              fill
+              sizes="600px"
+              className={`object-cover ${project.private ? "blur-sm" : ""}`}
+            />
           </div>
         );
       })}
