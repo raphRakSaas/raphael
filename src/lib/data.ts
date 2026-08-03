@@ -175,6 +175,10 @@ export type TimelineEntry = {
   place?: string;
   description?: string;
   tags?: string[];
+  // Explicit grid row (1-indexed within the band) so overlapping periods line
+  // up across the two columns — both sides share one grid, so a row's height
+  // is driven by whichever side has content there.
+  row: number;
 };
 
 export type TimelineBand = {
@@ -196,6 +200,7 @@ export const parcours: TimelineBand[] = [
     years: "2024 — 2025",
     left: [
       {
+        row: 1,
         date: "Oct. 2025 — présent",
         title: "Développeur Fullstack",
         place: "plüm — aujourd'hui CDI",
@@ -203,6 +208,7 @@ export const parcours: TimelineBand[] = [
         tags: ["React Native", "Next.js", "NestJS", "TypeScript"],
       },
       {
+        row: 2,
         date: "Sept. 2024 — Oct. 2025",
         title: "Développeur Backend",
         place: "plüm — Alternance",
@@ -210,11 +216,16 @@ export const parcours: TimelineBand[] = [
         tags: ["NestJS", "TypeScript", "PostgreSQL", "Docker"],
       },
       {
+        row: 3,
         date: "2025 · Mention Très Bien",
         title: "Master 2 Informatique",
         place: "Université de La Réunion",
+        description:
+          "Diplôme obtenu en menant de front un job étudiant à temps partiel — la meilleure préparation à jongler entre plusieurs contextes une fois en poste.",
+        tags: ["Architecture logicielle", "Génie logiciel"],
       },
       {
+        row: 4,
         date: "Jan. — Juin 2024",
         title: "Développeur TER",
         place: "LIM · Université de La Réunion",
@@ -224,9 +235,13 @@ export const parcours: TimelineBand[] = [
     ],
     right: [
       {
-        date: "Avr. 2024 — présent",
+        row: 4,
+        date: "Avr. 2024 — Août 2024",
         title: "Cuisinier",
         place: "Shiso Burger, Saint-Denis",
+        description:
+          "Rythme soutenu en cuisine sur les coups de feu — sang-froid et rapidité d'exécution, en parallèle de la fin du TER avant l'alternance chez plüm.",
+        tags: ["Gestion du stress", "Rapidité d'exécution"],
       },
     ],
   },
@@ -234,11 +249,16 @@ export const parcours: TimelineBand[] = [
     years: "2022 — 2023",
     left: [
       {
+        row: 1,
         date: "2023 · Mention Bien",
         title: "Licence Informatique",
         place: "Université de La Réunion",
+        description:
+          "Bases solides en algorithmique, structures de données et programmation orientée objet — premiers projets web menés en parallèle des jobs étudiants.",
+        tags: ["Algorithmique", "POO", "Bases de données"],
       },
       {
+        row: 2,
         date: "Sept. — Déc. 2023",
         title: "Développeur TER",
         place: "LIM · Université de La Réunion",
@@ -247,34 +267,87 @@ export const parcours: TimelineBand[] = [
       },
     ],
     right: [
-      { date: "Oct. 2022 — Août 2023", title: "Employé de restaurant", place: "Restaurant universitaire" },
+      {
+        row: 1,
+        date: "Oct. 2022 — Août 2023",
+        title: "Employé de restaurant",
+        place: "Restaurant universitaire",
+        description:
+          "Cadences élevées aux heures de pointe, travail d'équipe et sens du service — mené de front avec la Licence puis le TER.",
+        tags: ["Travail d'équipe", "Sens du service"],
+      },
     ],
   },
   {
     years: "2021 — 2022",
     left: [
-      { date: "2021 · Mention Bien", title: "Commerce électronique & e-business", place: "CNFDI" },
       {
+        row: 1,
         date: "Déc. 2022 — Jan. 2023",
         title: "Développeur Web Stagiaire",
         place: "ESIGE · Madagascar",
         description: "Plateforme de gestion universitaire — cours en ligne, examens. Laravel full-stack.",
         tags: ["Laravel", "PHP", "MySQL"],
       },
+      {
+        row: 2,
+        date: "2021 · Mention Bien",
+        title: "Commerce électronique & e-business",
+        place: "CNFDI",
+        description:
+          "Certification à distance suivie en parallèle des jobs étudiants — bases utiles de la relation client et de la logique business, précieuses aujourd'hui pour comprendre les besoins produit avant de coder.",
+        tags: ["E-commerce", "Autonomie"],
+      },
     ],
     right: [
-      { date: "Juin — Oct. 2022", title: "Cuisinier intérimaire", place: "SHISO Burger, Sainte-Marie" },
-      { date: "Avr. — Juin 2022", title: "Inventoriste", place: "IVALIS" },
-      { date: "2021 — 2022", title: "Caissier — Service Civique", place: "Solidarité étudiante" },
+      {
+        row: 1,
+        date: "Juin — Oct. 2022",
+        title: "Cuisinier intérimaire",
+        place: "SHISO Burger, Sainte-Marie",
+        description: "Mission d'été en intérim — adaptation rapide à une nouvelle équipe et à une cadence de service intense.",
+        tags: ["Adaptabilité"],
+      },
+      {
+        row: 2,
+        date: "Avr. — Juin 2022",
+        title: "Inventoriste",
+        place: "IVALIS",
+        description: "Inventaires en grande distribution, souvent de nuit — rigueur et précision sur des volumes importants.",
+        tags: ["Rigueur"],
+      },
+      {
+        row: 3,
+        date: "2021 — 2022",
+        title: "Caissier — Service Civique",
+        place: "Solidarité étudiante",
+        description: "Accueil et accompagnement des bénéficiaires au quotidien — relation client et sens du contact humain.",
+        tags: ["Relation client"],
+      },
     ],
   },
   {
     years: "2017 — 2020",
     left: [
-      { date: "2017 · Mention Bien", title: "Baccalauréat Scientifique, Série C", place: "Lycée Notre Dame · Majunga, Madagascar" },
+      {
+        row: 1,
+        date: "2017 · Mention Bien",
+        title: "Baccalauréat Scientifique, Série C",
+        place: "Lycée Notre Dame · Majunga, Madagascar",
+        description:
+          "Spécialité mathématiques et physique-chimie à Madagascar — le déclic pour la logique et la résolution de problèmes qui m'a mené vers le développement.",
+      },
     ],
     right: [
-      { date: "2019 — 2020", title: "Employé polyvalent", place: "Burger King, Chaudron" },
+      {
+        row: 1,
+        date: "2019 — 2020",
+        title: "Employé polyvalent",
+        place: "Burger King, Chaudron",
+        description:
+          "Premier job étudiant, dès le lycée — sens des responsabilités et gestion du rythme entre cours et travail, déjà.",
+        tags: ["Ponctualité", "Autonomie"],
+      },
     ],
   },
 ];

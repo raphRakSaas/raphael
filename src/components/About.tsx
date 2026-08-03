@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { Container, SectionHeading } from "./ui";
+import { ScrollFade } from "./scroll-fade";
 import { about } from "@/lib/data";
 
 const blockVariants = {
@@ -20,22 +20,6 @@ function Reveal({ children, className = "" }: { children: React.ReactNode; class
       viewport={{ once: true, amount: 0.2 }}
       variants={blockVariants}
     >
-      {children}
-    </motion.div>
-  );
-}
-
-// Continuously tied to scroll position (not a one-shot trigger): fades in as it
-// enters the viewport, stays visible while passing through, fades back out as
-// it leaves — reversible in both scroll directions.
-function ScrollFade({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [32, 0, 0, -32]);
-
-  return (
-    <motion.div ref={ref} className={className} style={{ opacity, y }}>
       {children}
     </motion.div>
   );
