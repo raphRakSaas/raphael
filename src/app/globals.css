@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-mist: #fafafa;
+  --color-line: #e6e6e6;
+  --color-line-strong: #d9d9d9;
+  --color-muted: #6b6b6b;
+  --color-accent: #0099ff;
+  --color-live: #21b30b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--color-ink);
+  --color-paper: var(--color-paper);
+  --color-mist: var(--color-mist);
+  --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
+  --color-muted: var(--color-muted);
+  --color-accent: var(--color-accent);
+  --color-live: var(--color-live);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-fragment-mono);
+
+  --shadow-soft: 0 1px 1px -1px rgba(0, 0, 0, 0.07), 0 3px 3px -2px rgba(0, 0, 0, 0.06),
+    0 8px 8px -4px rgba(0, 0, 0, 0.05), 0 20px 20px -6px rgba(0, 0, 0, 0.04);
+  --shadow-soft-lg: 0 2px 2px -2px rgba(0, 0, 0, 0.08), 0 6px 6px -3px rgba(0, 0, 0, 0.07),
+    0 16px 16px -6px rgba(0, 0, 0, 0.06), 0 36px 36px -10px rgba(0, 0, 0, 0.05);
+
+  --animate-marquee: marquee 28s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, sans-serif;
+}
+
+.font-mono-tag {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.02em;
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+.shadow-soft-lg {
+  box-shadow: var(--shadow-soft-lg);
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
 }
