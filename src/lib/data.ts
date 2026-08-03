@@ -151,9 +151,10 @@ export const about = {
   headline: "Né à Madagascar, construit à La Réunion.",
   stat: { value: "5 ans", label: "de double vie — études et jobs alimentaires en parallèle" },
   stats: [
-    { value: "4×", label: "Mention Bien" },
-    { value: "10+", label: "technos en prod" },
-    { value: "2025", label: "CDI chez plüm" },
+    { value: "3×", label: "Mention Bien" },
+    { value: "Master 2", label: "Mention Très Bien — 2025" },
+    { value: "7", label: "produits en production" },
+    { value: "Aujourd'hui", label: "CDI chez plüm" },
   ],
   name: "Aina Raphaël Rakotonaivo",
   title: "Développeur Fullstack",
@@ -163,7 +164,7 @@ export const about = {
     { place: "ESIGE · Madagascar", role: "Développeur Web Stagiaire", period: "Déc. 2022 — Jan. 2023" },
   ],
   paragraphs: [
-    "Développeur fullstack formé à l'Université de La Réunion — Master 2 Informatique 2025, Mention Bien. Pendant 5 ans, j'ai mené de front études et emplois alimentaires : restaurant universitaire, Burger King, SHISO Burger, inventoriste. Cette double vie m'a appris la discipline, la résistance et l'efficacité.",
+    "Développeur fullstack formé à l'Université de La Réunion — Master 2 Informatique 2025, Mention Très Bien. Pendant 5 ans, j'ai mené de front études et emplois alimentaires : restaurant universitaire, Burger King, SHISO Burger, inventoriste. Cette double vie m'a appris la discipline, la résistance et l'efficacité.",
     "Aujourd'hui en CDI chez plüm, je conçois et déploie des applications mobiles React Native et des plateformes web Next.js — du prototype au serveur de production.",
   ],
 };
@@ -209,7 +210,7 @@ export const parcours: TimelineBand[] = [
         tags: ["NestJS", "TypeScript", "PostgreSQL", "Docker"],
       },
       {
-        date: "2025 · Mention Bien",
+        date: "2025 · Mention Très Bien",
         title: "Master 2 Informatique",
         place: "Université de La Réunion",
       },
