@@ -21,7 +21,7 @@ export function Hero() {
           </div>
 
           <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.05]">
-            {hero.title}
+            <span className="text-accent">{hero.title.muted}</span> {hero.title.emphasis}
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-muted">{hero.subtitle}</p>

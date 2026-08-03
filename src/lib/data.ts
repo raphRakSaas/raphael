@@ -8,13 +8,16 @@ export const nav = [
 
 export const hero = {
   badge: "Disponible — CDI chez plüm",
-  title: "De l'idée au produit fini, livré en production.",
+  title: {
+    muted: "De l'idée au produit fini,",
+    emphasis: "livré en production.",
+  },
   subtitle:
     "Développeur fullstack depuis La Réunion — je prends votre projet de l'idée jusqu'au store et aux serveurs, sans rien déléguer.",
   ctaPrimary: { label: "Voir mes projets", href: "#projects" },
   ctaSecondary: { label: "Me contacter", href: "#contact" },
   stats: [
-    { value: "7", label: "produits en production" },
+    { value: "8", label: "produits en production" },
     { value: "Master 2", label: "Mention Très Bien — 2025" },
     { value: "2024 → Aujourd'hui", label: "plüm alternance → CDI" },
   ],
@@ -82,6 +85,16 @@ export const projects: Project[] = [
     externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-dashboard",
   },
   {
+    slug: "sereno-website",
+    name: "Sereno — Site vitrine",
+    category: "Side project",
+    meta: "Site vitrine · 2025 — présent",
+    description:
+      "Landing page marketing de Sereno — présentation de l'offre, fonctionnalités, cas d'usage et tarification, réalisée avec Framer.",
+    image: "/images/sereno-website/image.png",
+    externalHref: "https://sereno-app.framer.website/",
+  },
+  {
     slug: "sereno",
     name: "Sereno",
     category: "Side project",
@@ -89,9 +102,7 @@ export const projects: Project[] = [
     description:
       "App web de gestion budgétaire 100% locale — sans compte, sans connexion bancaire. Budgets par catégorie, objectifs d'épargne et tableau de bord unifié.",
     image: "/images/sereno/dashboard.png",
-    externalHref: "https://sereno-app.framer.website/",
-    appHref: "https://sereno-v2-xi.vercel.app/onboarding",
-    appLabel: "Essayer l'app",
+    externalHref: "https://sereno-v2-xi.vercel.app/",
   },
   {
     slug: "revo",
@@ -153,7 +164,7 @@ export const about = {
   stats: [
     { value: "3×", label: "Mention Bien" },
     { value: "Master 2", label: "Mention Très Bien — 2025" },
-    { value: "7", label: "produits en production" },
+    { value: "8", label: "produits en production" },
     { value: "Aujourd'hui", label: "CDI chez plüm" },
   ],
   name: "Aina Raphaël Rakotonaivo",
