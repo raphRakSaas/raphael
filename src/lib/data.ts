@@ -14,65 +14,104 @@ export const hero = {
   ctaPrimary: { label: "Voir mes projets", href: "#projects" },
   ctaSecondary: { label: "Me contacter", href: "#contact" },
   stats: [
-    { value: "4", label: "produits en production" },
+    { value: "7", label: "produits en production" },
     { value: "M2", label: "Mention Bien — 2025" },
     { value: "2024 → 2025", label: "plüm alternance → CDI" },
   ],
 };
 
+export type ProjectCategory = "Plüm · Professionnel" | "Side project";
+
 export type Project = {
   slug: string;
   name: string;
-  category: string;
+  category: ProjectCategory;
   meta: string;
   description: string;
   image: string;
   private?: boolean;
   externalHref: string;
+  appHref?: string;
+  appLabel?: string;
 };
 
+export const projectCategories: ProjectCategory[] = ["Plüm · Professionnel", "Side project"];
+
+// First 4 entries drive the hero scroll-morph (see StackOverlay + morph-context) —
+// keep the featured mix here, extra projects render as plain cards after.
 export const projects: Project[] = [
+  {
+    slug: "sereno",
+    name: "Sereno",
+    category: "Side project",
+    meta: "2025 — présent",
+    description:
+      "App web de gestion budgétaire 100% locale — sans compte, sans connexion bancaire. Budgets par catégorie, objectifs d'épargne et tableau de bord unifié.",
+    image: "/images/sereno/dashboard.png",
+    externalHref: "https://sereno-app.framer.website/",
+    appHref: "https://sereno-v2-xi.vercel.app/onboarding",
+    appLabel: "Essayer l'app",
+  },
   {
     slug: "plum-services",
     name: "Plüm Services",
-    category: "Professionnel · CDI",
-    meta: "Sept. 2024 — présent",
+    category: "Plüm · Professionnel",
+    meta: "CDI · Sept. 2024 — présent",
     description:
       "Application mobile & plateforme SaaS de gestion de services à domicile — React Native, Next.js, NestJS.",
-    image: "/images/plum/plum-0.webp",
+    image: "/images/plum/plum.png",
     externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-services",
   },
   {
-    slug: "plum-pro",
-    name: "Plüm BnB — Espace professionnel",
-    category: "Professionnel · B2B",
-    meta: "Sept. 2024 — présent",
+    slug: "plum-website",
+    name: "Plüm — Site vitrine",
+    category: "Plüm · Professionnel",
+    meta: "Site vitrine · 2024 — présent",
     description:
-      "Web app B2B pour les pros de la location courte durée — biens, prestations de ménage, agenda et facturation.",
-    image: "/images/bnb-profile/bnb-biens.webp",
-    private: true,
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-pro",
-  },
-  {
-    slug: "plum-dashboard",
-    name: "Dashboard de pilotage plüm",
-    category: "Professionnel · Interne",
-    meta: "2025 — présent",
-    description:
-      "Outil interne de pilotage de la startup — données, règles métier, documents et opérations centralisés.",
-    image: "/images/plum/plum-2.webp",
-    private: true,
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-dashboard",
+      "Landing page publique de plüm — présentation de l'offre ménage, linge et garde d'enfants à La Réunion, et téléchargement de l'app iOS/Android.",
+    image: "/images/plum-website/image.png",
+    externalHref: "https://plumservices.co/",
   },
   {
     slug: "revo",
     name: "Revo",
-    category: "Projet personnel",
+    category: "Side project",
     meta: "2025 — présent",
     description:
       "SaaS pour coachs sportifs — gestion clients, séances, programmes et suivi de progression.",
     image: "/images/revo-capture/revo-hero.webp",
     externalHref: "https://raphael-rakotonaivo.vercel.app/projects/revo",
+  },
+  {
+    slug: "plum-pro",
+    name: "Plüm BnB — Espace professionnel",
+    category: "Plüm · Professionnel",
+    meta: "B2B · Sept. 2024 — présent",
+    description:
+      "Web app B2B pour les pros de la location courte durée — biens, prestations de ménage, agenda et facturation.",
+    image: "/images/bnb-profile/image.png",
+    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-pro",
+  },
+  {
+    slug: "tourose",
+    name: "TouRose",
+    category: "Side project",
+    meta: "Beta · 2025 — présent",
+    description:
+      "Site + app qui recensent événements et lieux à Toulouse — catalogue éditorial, import d'événements OpenAgenda, suggestions contextuelles. Projet personnel en bêta ouverte.",
+    image: "/images/tourose/image.png",
+    externalHref: "https://tourose.pages.dev/",
+  },
+  {
+    slug: "plum-dashboard",
+    name: "Dashboard de pilotage plüm",
+    category: "Plüm · Professionnel",
+    meta: "Interne · 2025 — présent",
+    description:
+      "Outil interne de pilotage de la startup — données, règles métier, documents et opérations centralisés.",
+    image: "/images/plum/plum-2.webp",
+    private: true,
+    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-dashboard",
   },
 ];
 
