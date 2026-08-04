@@ -71,7 +71,7 @@ export const projects: Project[] = [
     description:
       "Web app B2B pour les pros de la location courte durée — biens, prestations de ménage, agenda et facturation.",
     image: "/images/bnb-profile/image.png",
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-pro",
+    externalHref: "/projects/plum-pro",
   },
   {
     slug: "plum-dashboard",
@@ -82,7 +82,7 @@ export const projects: Project[] = [
       "Outil interne de pilotage de la startup — données, règles métier, documents et opérations centralisés.",
     image: "/images/plum/plum-2.webp",
     private: true,
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-dashboard",
+    externalHref: "/projects/plum-dashboard",
   },
   {
     slug: "sereno-website",
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     description:
       "SaaS pour coachs sportifs — gestion clients, séances, programmes et suivi de progression.",
     image: "/images/revo-capture/revo-hero.webp",
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/revo",
+    externalHref: "/projects/revo",
   },
   {
     slug: "tourose",

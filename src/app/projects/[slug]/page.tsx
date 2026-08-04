@@ -74,16 +74,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </div>
             </Reveal>
 
-            <Reveal delay={0.15}>
-              <div className="mt-12 flex flex-wrap gap-x-14 gap-y-6 border-t border-line pt-8">
-                {study.stats.map((stat) => (
-                  <div key={stat.label}>
-                    <div className="font-mono-tag whitespace-nowrap text-2xl">{stat.value}</div>
-                    <div className="mt-1.5 whitespace-nowrap text-xs text-muted">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
+            {study.stats && study.stats.length > 0 && (
+              <Reveal delay={0.15}>
+                <div className="mt-12 flex flex-wrap gap-x-14 gap-y-6 border-t border-line pt-8">
+                  {study.stats.map((stat) => (
+                    <div key={stat.label}>
+                      <div className="font-mono-tag whitespace-nowrap text-2xl">{stat.value}</div>
+                      <div className="mt-1.5 whitespace-nowrap text-xs text-muted">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            )}
 
             {study.cover && (
               <Reveal delay={0.2}>
@@ -106,20 +108,35 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {study.gallery && study.gallery.length > 0 && (
           <section className="border-b border-line py-12">
             <StaggerGroup className="mx-auto flex max-w-full snap-x justify-center gap-5 overflow-x-auto px-6 pb-2 md:px-8">
-              {study.gallery.map((src, i) => (
-                <StaggerItem
-                  key={src}
-                  className="relative h-[420px] w-[195px] shrink-0 snap-start overflow-hidden rounded-[2rem] border border-line shadow-soft-lg transition-transform duration-300 hover:-translate-y-1.5 md:h-[520px] md:w-[241px]"
-                >
-                  <Image
-                    src={src}
-                    alt={`${project.name} — écran ${i + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 195px, 241px"
-                    className="object-cover object-top"
-                  />
-                </StaggerItem>
-              ))}
+              {study.gallery.map((src, i) =>
+                study.galleryStyle === "desktop" ? (
+                  <StaggerItem
+                    key={src}
+                    className="relative h-[220px] w-[340px] shrink-0 snap-start overflow-hidden rounded-2xl border border-line bg-mist shadow-soft-lg transition-transform duration-300 hover:-translate-y-1.5 md:h-[300px] md:w-[460px]"
+                  >
+                    <Image
+                      src={src}
+                      alt={`${project.name} — écran ${i + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 340px, 460px"
+                      className="object-contain p-3"
+                    />
+                  </StaggerItem>
+                ) : (
+                  <StaggerItem
+                    key={src}
+                    className="relative h-[420px] w-[195px] shrink-0 snap-start overflow-hidden rounded-[2rem] border border-line shadow-soft-lg transition-transform duration-300 hover:-translate-y-1.5 md:h-[520px] md:w-[241px]"
+                  >
+                    <Image
+                      src={src}
+                      alt={`${project.name} — écran ${i + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 195px, 241px"
+                      className="object-cover object-top"
+                    />
+                  </StaggerItem>
+                )
+              )}
             </StaggerGroup>
           </section>
         )}
