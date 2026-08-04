@@ -371,7 +371,7 @@ export const process = {
       number: "01",
       title: "Cadrer",
       description:
-        "Tickets découpés et priorisés sur GitLab, maquettes quand l'UI le mérite, et une definition of done écrite avant la première ligne de code.",
+        "Tickets découpés et priorisés sur Notion, maquettes quand l'UI le mérite, et une definition of done écrite avant la première ligne de code.",
     },
     {
       number: "02",
@@ -383,7 +383,7 @@ export const process = {
       number: "03",
       title: "Livrer & surveiller",
       description:
-        "Docker Compose sur serveur dédié, Nginx, suivi des erreurs en prod et hotfix rapide. Une feature n'est terminée que quand elle tourne chez les utilisateurs.",
+        "Docker Compose sur serveur dédié, Scaleway, suivi des erreurs en prod et hotfix rapide. Une feature n'est terminée que quand elle tourne chez les utilisateurs.",
     },
   ],
 };
