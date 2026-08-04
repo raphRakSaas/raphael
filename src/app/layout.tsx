@@ -15,10 +15,35 @@ const fragmentMono = Fragment_Mono({
   display: "swap",
 });
 
+const title = "Aina Raphaël Rakotonaivo — Développeur Fullstack React Native & Next.js";
+const description =
+  "Développeur Fullstack spécialisé React Native, Next.js et NestJS, basé à La Réunion. Master 2 Informatique, CDI chez plüm. Disponible en remote — Paris, Lyon, Toulouse.";
+const ogImage = {
+  url: "/images/og/og.png",
+  width: 1729,
+  height: 910,
+  alt: title,
+};
+
 export const metadata: Metadata = {
-  title: "Aina Raphaël Rakotonaivo — Développeur Fullstack React Native & Next.js",
-  description:
-    "Développeur Fullstack spécialisé React Native, Next.js et NestJS, basé à La Réunion. Master 2 Informatique, CDI chez plüm. Disponible en remote — Paris, Lyon, Toulouse.",
+  metadataBase: new URL("https://rakotonaivo-raphael.vercel.app"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: "Aina Raphaël Rakotonaivo",
+    locale: "fr_FR",
+    type: "website",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [ogImage.url],
+  },
 };
 
 export default function RootLayout({
