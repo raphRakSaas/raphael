@@ -103,24 +103,26 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Screenshot gallery */}
-        <section className="border-b border-line py-12">
-          <StaggerGroup className="mx-auto flex max-w-full snap-x justify-center gap-5 overflow-x-auto px-6 pb-2 md:px-8">
-            {study.gallery.map((src, i) => (
-              <StaggerItem
-                key={src}
-                className="relative h-[420px] w-[195px] shrink-0 snap-start overflow-hidden rounded-[2rem] border border-line shadow-soft-lg transition-transform duration-300 hover:-translate-y-1.5 md:h-[520px] md:w-[241px]"
-              >
-                <Image
-                  src={src}
-                  alt={`${project.name} — écran ${i + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 195px, 241px"
-                  className="object-cover object-top"
-                />
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </section>
+        {study.gallery && study.gallery.length > 0 && (
+          <section className="border-b border-line py-12">
+            <StaggerGroup className="mx-auto flex max-w-full snap-x justify-center gap-5 overflow-x-auto px-6 pb-2 md:px-8">
+              {study.gallery.map((src, i) => (
+                <StaggerItem
+                  key={src}
+                  className="relative h-[420px] w-[195px] shrink-0 snap-start overflow-hidden rounded-[2rem] border border-line shadow-soft-lg transition-transform duration-300 hover:-translate-y-1.5 md:h-[520px] md:w-[241px]"
+                >
+                  <Image
+                    src={src}
+                    alt={`${project.name} — écran ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 195px, 241px"
+                    className="object-cover object-top"
+                  />
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </section>
+        )}
 
         {/* Achievements */}
         <section className="border-b border-line py-16 md:py-20">

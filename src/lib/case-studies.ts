@@ -22,7 +22,7 @@ export type CaseStudy = {
   role: string;
   period: string;
   privacyNote?: string;
-  gallery: string[];
+  gallery?: string[];
   cover?: string;
 };
 
@@ -112,5 +112,63 @@ export const caseStudies: Record<string, CaseStudy> = {
       "/images/plum/plum-3.webp",
       "/images/plum/plum-4.webp",
     ],
+  },
+  "plum-website": {
+    slug: "plum-website",
+    stats: [
+      { value: "1er", label: "site mis en ligne par mes soins, de A à Z" },
+      { value: "100%", label: "déploiement automatisé à chaque push sur main" },
+      { value: "0 → prod", label: "domaine acheté, configuré et en ligne" },
+    ],
+    description:
+      "La landing page publique de plüm — vitrine de l'offre ménage, linge et garde d'enfants à La Réunion, et point d'entrée vers les applications iOS et Android. J'en ai construit la base avec Next.js et Tailwind CSS, mais ce projet est surtout celui de ma première mise en production : mon tout premier site accessible publiquement, du code jusqu'au nom de domaine. Je ne connaissais alors ni Cloudflare Pages, ni la configuration DNS — j'ai tout appris sur le tas, documentation officielle et assistants IA à l'appui, jusqu'à mettre en place un pipeline CI/CD complet : chaque push sur main build et déploie automatiquement le site via un Worker Cloudflare Pages.",
+    achievements: [
+      "Développé la landing page avec Next.js et Tailwind CSS",
+      "Mis en place un pipeline CI/CD : chaque push sur main déclenche un build et un déploiement automatique sur Cloudflare Pages via un Worker",
+      "Acheté un nom de domaine et configuré les enregistrements DNS pour le pointer vers l'hébergement",
+      "Appris à purger le cache Cloudflare pour que les mises à jour soient visibles immédiatement après déploiement",
+      "Premier site mis en production en autonomie complète — le déclic qui m'a donné envie d'explorer Vercel et Netlify, que j'utilise aujourd'hui sur mes side projects",
+    ],
+    challenges: [
+      {
+        title: "Premier déploiement en production",
+        problem:
+          "Je n'avais encore jamais mis un site en ligne moi-même : Cloudflare Pages, les Workers, la notion même de build et de déploiement automatique m'étaient complètement inconnus.",
+        solution:
+          "J'ai lu la documentation officielle de Cloudflare et échangé avec des assistants IA pour comprendre chaque étape, jusqu'à mettre en place un pipeline complet : push sur main → build Next.js → déploiement automatique via un Worker Cloudflare Pages.",
+        result: "Un site accessible publiquement quelques minutes après chaque commit, sans aucune intervention manuelle.",
+      },
+      {
+        title: "Nom de domaine et configuration DNS",
+        problem:
+          "Acheter un nom de domaine et le relier à un hébergeur me semblait obscur : enregistrements A, CNAME, propagation DNS, purge de cache — tout ça était nouveau.",
+        solution:
+          "J'ai acheté le domaine, configuré les enregistrements DNS pour pointer vers Cloudflare, et appris à purger le cache pour que chaque changement soit visible immédiatement plutôt que de rester bloqué en cache pendant des heures.",
+        result: "Un nom de domaine professionnel opérationnel, et une compétence DNS/cache que je réutilise depuis sur tous mes projets, plüm comme personnels.",
+      },
+      {
+        title: "Élargir la boîte à outils",
+        problem:
+          "Cloudflare Pages était le seul hébergeur que je connaissais — je ne savais pas s'il existait des alternatives plus adaptées selon le type de projet.",
+        solution:
+          "En creusant le sujet une fois ce premier déploiement maîtrisé, j'ai découvert Vercel et Netlify, que j'utilise aujourd'hui sur mes side projects selon leurs besoins spécifiques.",
+        result: "Une vraie culture DevOps front — je choisis désormais l'hébergeur adapté à chaque projet plutôt que de toujours réutiliser le même par défaut.",
+      },
+    ],
+    architecture: ["Next.js + Tailwind CSS", "Push sur main (GitHub)", "Worker Cloudflare Pages (build & déploiement)", "DNS → domaine personnalisé"],
+    stack: [
+      { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+      { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "Cloudflare Pages", icon: "https://cdn.simpleicons.org/cloudflarepages" },
+      { name: "Cloudflare Workers", icon: "https://cdn.simpleicons.org/cloudflareworkers" },
+      { name: "Cloudflare DNS", icon: "https://cdn.simpleicons.org/cloudflare/F38020" },
+      { name: "GitHub", icon: "https://cdn.simpleicons.org/github" },
+    ],
+    links: [{ label: "Voir le site", href: "https://plumservices.co/" }],
+    cover: "/images/plum-website/image.png",
+    context: "plüm — alternance puis CDI (oct. 2025)",
+    role: "Développeur Frontend",
+    period: "2024 — présent",
+    privacyNote: "Code source propriété de plüm (dépôt privé). Architecture et démarche présentables en entretien.",
   },
 };

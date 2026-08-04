@@ -61,7 +61,7 @@ export const projects: Project[] = [
     description:
       "Landing page publique de plüm — présentation de l'offre ménage, linge et garde d'enfants à La Réunion, et téléchargement de l'app iOS/Android.",
     image: "/images/plum-website/image.png",
-    externalHref: "https://plumservices.co/",
+    externalHref: "/projects/plum-website",
   },
   {
     slug: "plum-pro",
