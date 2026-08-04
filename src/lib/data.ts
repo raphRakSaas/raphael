@@ -51,7 +51,7 @@ export const projects: Project[] = [
     description:
       "Application mobile & plateforme SaaS de gestion de services à domicile — React Native, Next.js, NestJS.",
     image: "/images/plum/plum.png",
-    externalHref: "https://raphael-rakotonaivo.vercel.app/projects/plum-services",
+    externalHref: "/projects/plum-services",
   },
   {
     slug: "plum-website",

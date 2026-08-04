@@ -1,7 +1,9 @@
 "use client";
 
+import type { KeyboardEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Container, SectionHeading, Card } from "./ui";
 import { projects, Project } from "@/lib/data";
 import { useMorph } from "./morph-context";
@@ -21,6 +23,7 @@ function GroupTitle({ children }: { children: string }) {
 }
 
 function ProjectBody({ project }: { project: Project }) {
+  const isInternal = project.externalHref.startsWith("/");
   return (
     <div className="p-6">
       <span className="font-mono-tag text-xs text-muted">{project.meta}</span>
@@ -29,9 +32,9 @@ function ProjectBody({ project }: { project: Project }) {
       <div className="mt-4 flex flex-wrap items-center gap-4">
         <Link
           href={project.externalHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-sm font-medium text-ink hover:text-accent"
+          {...(!isInternal && { target: "_blank", rel: "noopener noreferrer" })}
+          onClick={(e) => e.stopPropagation()}
+          className="relative z-10 inline-flex items-center gap-1 text-sm font-medium text-ink hover:text-accent"
         >
           Voir le projet →
         </Link>
@@ -40,7 +43,8 @@ function ProjectBody({ project }: { project: Project }) {
             href={project.appHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-accent"
+            onClick={(e) => e.stopPropagation()}
+            className="relative z-10 inline-flex items-center gap-1 text-sm font-medium text-muted hover:text-accent"
           >
             {project.appLabel ?? "Essayer"} →
           </Link>
@@ -74,6 +78,7 @@ function ProjectImage({ project }: { project: Project }) {
 }
 
 export function Projects() {
+  const router = useRouter();
   const { targetRefs, progress, ready } = useMorph();
 
   const headingOpacity = !ready ? 1 : lerp(0.35, 1, progress);
@@ -85,10 +90,33 @@ export function Projects() {
   const startup = projects.filter((p) => p.category === "Startup");
   const sideProjects = projects.filter((p) => p.category === "Side project");
 
+  function openProject(project: Project) {
+    if (project.externalHref.startsWith("/")) {
+      router.push(project.externalHref);
+    } else {
+      window.open(project.externalHref, "_blank", "noopener,noreferrer");
+    }
+  }
+
+  function cardProps(project: Project) {
+    return {
+      onClick: () => openProject(project),
+      onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openProject(project);
+        }
+      },
+      role: "link",
+      tabIndex: 0,
+      className: "group cursor-pointer overflow-hidden",
+    };
+  }
+
   function renderCard(project: Project, i: number) {
     if (i < MORPHED_COUNT) {
       return (
-        <Card key={project.slug} className="group overflow-hidden">
+        <Card key={project.slug} {...cardProps(project)}>
           <div ref={targetRefs[i]} className="relative aspect-[16/10] w-full" style={{ opacity: imageOpacity }}>
             <ProjectImage project={project} />
           </div>
@@ -100,7 +128,7 @@ export function Projects() {
     }
 
     return (
-      <Card key={project.slug} className="group overflow-hidden">
+      <Card key={project.slug} {...cardProps(project)}>
         <div className="relative aspect-[16/10] w-full">
           <ProjectImage project={project} />
         </div>

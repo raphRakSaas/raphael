@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 export function Container({ className = "", children }: { className?: string; children: ReactNode }) {
   return <div className={`mx-auto w-full max-w-6xl px-6 md:px-8 ${className}`}>{children}</div>;
@@ -61,11 +61,11 @@ export function Button({ href, children, variant = "primary", className = "", ex
   );
 }
 
-export function Card({ className = "", children }: { className?: string; children: ReactNode }) {
+type CardProps = { className?: string; children: ReactNode } & HTMLAttributes<HTMLDivElement>;
+
+export function Card({ className = "", children, ...rest }: CardProps) {
   return (
-    <div
-      className={`rounded-3xl border border-line bg-paper shadow-soft ${className}`}
-    >
+    <div className={`rounded-3xl border border-line bg-paper shadow-soft ${className}`} {...rest}>
       {children}
     </div>
   );
